@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Hantaton.Models.Product>
+
+@{
+    ViewBag.Title = "Главная";
+}
+
+<style>
+    #myInput {
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+
+    #myUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        #myUL li a {
+            border: 1px solid #ddd;
+            margin-top: -1px; /* Prevent double borders */
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+</style>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<!--<p>
+    @Html.ActionLink("Create New", "Create")
+</p>-->
+
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Поиск по названию" title="Type in a name">
+<ul id="myUL">
+    @foreach (var item in Model)
+    {
+
+
+        <li alt="jhjh">
+            <a href="">
+                @Html.DisplayFor(modelItem => item.Name) <span>@Html.ActionLink("Подробнее", "Details", new { id = item.Id })</span>
+                @Html.ListBox("Id", new SelectList(item.Drugstores, "Id", "Name"))
+            </a>
+        </li>
+        <!--
+         <li><a href"">@Html.DisplayFor(modelItem => item.Composition)</a></li>
+         <li><a href"">@Html.DisplayFor(modelItem => item.Price)</a></li>
+         <li><a href"">@Html.DisplayFor(modelItem => item.Mass)</a></li>
+         <li><a href"">@Html.DisplayFor(modelItem => item.AnalogousName_1)</a></li>
+
+          <li><a href"">@Html.DisplayFor(modelItem => item.AnalogousName_2)</a></li>
+         <li><a href"">@Html.DisplayFor(modelItem => item.AnalogousName_3)</a></li>
+         <li><a href"">@Html.DisplayFor(modelItem => item.AnalogousName_4)</a></li>
+         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        |
+         @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+             -->
+
+    }
+</ul>
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+
+
+
+</script>
+

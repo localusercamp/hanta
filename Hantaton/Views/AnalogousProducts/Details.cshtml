@@ -1,0 +1,122 @@
+﻿@model Hantaton.Models.AnalogousProduct
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AnalogousProduct</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composition1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composition1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mass1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mass1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composition2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composition2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mass2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mass2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composition3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composition3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mass3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mass3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composition4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composition4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mass4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mass4)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

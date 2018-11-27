@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Hantaton.Models.Drugstore>
+<!--p>
+    @Html.ActionLink("Create New", "Create")
+</p>-->
+<table class="table">
+    <tr>
+
+        <th>
+            Название аптеки
+        </th>
+        <th>
+            Адресc
+        </th>
+        <th>
+            Время открытия
+        </th>
+        <th>
+            Время закрытия
+        </th>
+        <th>
+            Тел.
+        </th>
+        <th>
+            Доп. инфо
+        </th>
+        <th>
+            Город
+        </th>
+        <th>
+            Товары
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpeningTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClosingTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DopInform)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.Name)
+        </td>
+        <td>
+            @Html.ListBox("Id", new SelectList(item.Products, "Id", "Name"))
+        </td>
+        <!--<td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>-->
+
+    </tr>
+    }
+
+</table>

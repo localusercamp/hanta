@@ -1,0 +1,271 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPHfSzlV81MGWHctthrYVeDhDo7sqegGk"></script>
+<style>
+    .map {
+        width: 500px;
+        height: 300px;
+    } 
+</style>
+<div class="at_wrap">
+    <div class="navg">
+        
+    </div>
+    <div class="content">
+        @{Html.RenderAction("Index", "Products");}
+    </div>
+
+    <div class="wrap">
+        <div class="wrap_searching">
+            
+            <div class="Search_list">
+                <h2>Город</h2>
+                <p><a href="~/Drugstore/index">Ханты-Мансийск</a></p>
+            </div>
+        </div><div class="wrap_map">
+    <div class="Map_list">
+        <h2>Карта</h2>
+        <div id="map" class="map"></div>
+        <script>
+                function initMap() {
+
+
+                    var centerLatLng = new google.maps.LatLng(61.004325, 69.024619);
+                    var popup1 = '<h4><a href="#" class="content">Аптека от склада</a></h4><p1>Ул. Студенческая, 14</p1>',
+                        popup2 = '<h4><a href="#" class="content">Аптека от склада</a></h4><p1>Ул. Пионерская, 70</p1>',
+                        popup3 = '<h4><a href="#" class="content">Валео Фарм</a></h4><p1>Ул. Мира, 92</p1>',
+                        popup4 = '<h4><a href="#" class="content">Фармокопейка</a></h4><p1>Ул. Мира, 45</p1>',
+                        popup5 = '<h4><a href="#" class="content">Фармокопейка</a></h4><p1>Ул. Заводская, 24</p1>',
+                        popup6 = '<h4><a href="#" class="content">Фармокопейка</a></h4><p1>Ул. Энгельса, 3</p1>',
+                        popup7 = '<h4><a href="#" class="content">Аптека от склада</a></h4><p1>Ул. Светлая, 67</p1>',
+                        popup8 = '<h4><a href="#" class="content">Аптека 86</a></h4><p1>Ул. Мира, 66</p1>',
+                        popup9 = '<h4><a href="#" class="content">Аптека 86</a></h4><p1>Ул. Калинина, 25</p1>',
+                        popup10 = '<h4><a href="#" class="content">Аптека 86</a></h4><p1>Ул. Югорская, 9</p1>',
+                        popup11 = '<h4><a href="#" class="content">Аптека от склада</a></h4><p1>Ул. Дунина-Горкавича, 8</p1>',
+                        popup12 = '<h4><a href="#" class="content">Аптека 86 Фарм-Сервис</a></h4><p1>Ул. Ленина, 117</p1>',
+                        popup13 = '<h4><a href="#" class="content">Аптека от склада</a></h4><p1>Ул. Парковая, 24</p1>',
+                        popup14 = '<h4><a href="#" class="content">ВалеоФарм</a></h4><p1>Ул. Комсомольская, 63</p1>',
+                        popup15 = '<h4><a href="#" class="content">ВалеоФарм</a></h4><p1>Ул. Ледовая, 3</p1>',
+                        popup16 = '<h4><a href="#" class="content">Ханты-Мансийская Аптека</a></h4><p1>Ул. Лопарева, 14</p1>',
+                        popup17 = '<h4><a href="#" class="content">Ханты-Мансийская Аптека</a></h4><p1>Ул. Ямская, 4</p1>',
+                        popup18 = '<h4><a href="#" class="content">Ханты-Мансийская Аптека</a></h4><p1>Ул. Калинина, 40</p1>';
+
+                    var mapOptions = {
+                        center: centerLatLng,
+                        zoom: 13
+                    };
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+
+                    marker1 = new google.maps.Marker({
+                        position: { lat: 61.013512, lng: 69.045688 }, // студенческая 14 -------------V
+                        map: map,
+                    });
+                    infowindow1 = new google.maps.InfoWindow({
+                        content: popup1
+                    });
+                    marker1.addListener('click', function () {
+                        infowindow1.open(map, marker1);
+                    });
+
+                    marker2 = new google.maps.Marker({
+                        position: { lat: 61.012460, lng: 69.043572 }, // пионерская 70а ---------------V
+                        map: map,
+                    });
+                    infowindow2 = new google.maps.InfoWindow({
+                        content: popup2
+                    });
+                    marker2.addListener('click', function () {
+                        infowindow2.open(map, marker2);
+                    });
+
+                    marker3 = new google.maps.Marker({
+                        position: { lat: 61.008682, lng: 69.054699 }, // мира 92 ----------------V
+                        map: map,
+                    });
+                    infowindow3 = new google.maps.InfoWindow({
+                        content: popup3
+                    });
+                    marker3.addListener('click', function () {
+                        infowindow3.open(map, marker3);
+                    });
+
+                    marker4 = new google.maps.Marker({
+                        position: { lat: 61.006342, lng: 69.040282 }, // мира 45 --------------------V
+                        map: map,
+                    });
+                    infowindow4 = new google.maps.InfoWindow({
+                        content: popup4
+                    });
+                    marker4.addListener('click', function () {
+                        infowindow4.open(map, marker4);
+                    });
+
+                    marker5 = new google.maps.Marker({
+                        position: { lat: 60.965886, lng: 69.040723 }, // заводская 24 --------------------V
+                        map: map,
+                    });
+                    infowindow5 = new google.maps.InfoWindow({
+                        content: popup5
+                    });
+                    marker5.addListener('click', function () {
+                        infowindow5.open(map, marker5);
+                    });
+
+                    marker6 = new google.maps.Marker({
+                        position: { lat: 61.004096, lng: 69.013799 }, // Энгельса 3 --------------V
+                        map: map,
+                    });
+                    infowindow6 = new google.maps.InfoWindow({
+                        content: popup6
+                    });
+                    marker6.addListener('click', function () {
+                        infowindow6.open(map, marker6);
+                    });
+
+                    marker7 = new google.maps.Marker({ /// светлая 67 ---------------------V
+                        position: { lat: 61.013459, lng: 69.041715 },
+                        map: map,
+                    });
+                    infowindow7 = new google.maps.InfoWindow({
+                        content: popup7
+                    });
+                    marker7.addListener('click', function () {
+                        infowindow7.open(map, marker7);
+                    });
+
+                    marker8 = new google.maps.Marker({ /// мира 66 ------------------------V
+                        position: { lat: 61.007074, lng: 69.039477 },
+                        map: map,
+                    });
+                    infowindow8 = new google.maps.InfoWindow({
+                        content: popup8
+                    });
+                    marker8.addListener('click', function () {
+                        infowindow8.open(map, marker8);
+                    });
+
+                    marker9 = new google.maps.Marker({ /// Калинина 25 ---------------V
+                        position: { lat: 61.003149, lng: 69.031613 },
+                        map: map,
+                    });
+                    infowindow9 = new google.maps.InfoWindow({
+                        content: popup9
+                    });
+                    marker9.addListener('click', function () {
+                        infowindow9.open(map, marker9);
+                    });
+
+                    marker10 = new google.maps.Marker({ ////  Югорская 9 ---------------V
+                        position: { lat: 60.988421, lng: 69.043120 },
+                        map: map,
+                    });
+                    infowindow10 = new google.maps.InfoWindow({
+                        content: popup10
+                    });
+                    marker10.addListener('click', function () {
+                        infowindow10.open(map, marker10);
+                    });
+
+                    marker11 = new google.maps.Marker({ //// Дунина Горкавича 8 --------------------V
+                        position: { lat: 60.999001, lng: 69.062138 },
+                        map: map,
+                    });
+                    infowindow11 = new google.maps.InfoWindow({
+                        content: popup11
+                    });
+                    marker11.addListener('click', function () {
+                        infowindow11.open(map, marker11);
+                    });
+
+                    marker12 = new google.maps.Marker({ /// ленина 117 -----------------V
+                        position: { lat: 61.009546, lng: 69.048708 },
+                        map: map,
+                    });
+                    infowindow12 = new google.maps.InfoWindow({
+                        content: popup12
+                    });
+                    marker12.addListener('click', function () {
+                        infowindow12.open(map, marker12);
+                    });
+
+                    marker13 = new google.maps.Marker({ /// Парковая 24 ---------------V
+                        position: { lat: 61.000436, lng: 69.050756 },
+                        map: map,
+                    });
+                    infowindow13 = new google.maps.InfoWindow({
+                        content: popup13
+                    });
+                    marker13.addListener('click', function () {
+                        infowindow13.open(map, marker13);
+                    });
+
+                    marker14 = new google.maps.Marker({ /// комсомольская 63 ----------------------V
+                        position: { lat: 61.008131, lng: 69.024007 },
+                        map: map,
+                    });
+                    infowindow14 = new google.maps.InfoWindow({
+                        content: popup17
+                    });
+                    marker14.addListener('click', function () {
+                        infowindow14.open(map, marker14);
+                    });
+
+                    marker15 = new google.maps.Marker({ /// ледовая 3 -------------------V
+                        position: { lat: 60.976666, lng: 69.017211 },
+                        map: map,
+                    });
+                    infowindow15 = new google.maps.InfoWindow({
+                        content: popup15
+                    });
+                    marker15.addListener('click', function () {
+                        infowindow15.open(map, marker15);
+                    });
+
+                    marker16 = new google.maps.Marker({ /// лопарева 14 -------------------------V
+                        position: { lat: 61.002507, lpg: 69.030711 },
+                        map: map,
+                    });
+                    infowindow16 = new google.maps.InfoWindow({
+                        content: popup16
+                    });
+                    marker16.addListener('click', function () {
+                        infowindow16.open(map, marker16);
+                    });
+
+
+                    marker17 = new google.maps.Marker({ /// ямская 4 -----------------------------V
+                        position: { lat: 60.973119, lpg: 69.026296 },
+                        map: map,
+                    });
+                    infowindow17 = new google.maps.InfoWindow({
+                        content: popup17
+                    });
+                    marker17.addListener('click', function () {
+                        infowindow17.open(map, marker17);
+                    });
+
+
+                    marker18 = new google.maps.Marker({ /// калинина 40 -------------------V
+                        position: { lat: 61.008833, lpg: 69.032780 },
+                        map: map,
+                    });
+                    infowindow18 = new google.maps.InfoWindow({
+                        content: popup18
+                    });
+                    marker18.addListener('click', function () {
+                        infowindow18.open(map, marker18);
+                    });
+                }
+
+                google.maps.event.addDomListener(window, "load", initMap);
+        </script>
+    </div>
+</div>
+        </div>
+
+    </div>
+
+
+</div>

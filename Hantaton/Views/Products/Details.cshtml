@@ -1,0 +1,56 @@
+﻿@model Hantaton.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Подробности:</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            Название
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Активное вещество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composition)
+        </dd>
+
+        <dt>
+            Цена
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Дозировка
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mass)
+        </dd>
+
+        <dt>
+            Аналогичный товар
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalogousName_1)
+        </dd>
+    </dl>
+</div>
+<!--<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>-->
